@@ -12,8 +12,11 @@
         <TextBox Name="priceTextBox" HorizontalAlignment="Left" Height="24" Margin="122,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="77"/>
         <TextBox x:Name="quantityTextBox" HorizontalAlignment="Left" Height="24" Margin="122,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="77"/>
         <Button Name="calculateButton" Content="_Calculate" HorizontalAlignment="Left" Height="37" Margin="327,152,0,0" VerticalAlignment="Top" Width="122" Click="calculateButton_Click"/>
+        <TextBlock x:Name="totalChargeTextBox" HorizontalAlignment="Left" Margin="46,209,0,53" Width="142" Height="NaN"><Run Text="Total Charge after adding"/><Run Text=" "/><LineBreak/><Run Text="the delivery charge ($25):"/></TextBlock>
+        <TextBox x:Name="totalChargeTextBlock" HorizontalAlignment="Left" Height="24" Margin="193,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="114" IsReadOnly="True"/>
         <Button Name="clearButton" Content="C_lear" HorizontalAlignment="Left" Height="34" Margin="327,209,0,0" VerticalAlignment="Top" Width="122" Click="clearButton_Click"/>
         <Button Name="closeButton" Content="Cl_ose" HorizontalAlignment="Left" Height="34" Margin="327,264,0,0" VerticalAlignment="Top" Width="122" Click="closeButton_Click"/>
+
 
 
     </Grid>
