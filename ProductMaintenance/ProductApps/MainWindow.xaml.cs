@@ -21,8 +21,9 @@ namespace ProductApps
     public partial class MainWindow : Window
     {
         Product cProduct;
-        decimal deliveryCharge = 25.00M; // Existing Delivery charge
-        decimal wrappingCharge = 5.00M;  // New: Wrapping charge
+        decimal deliveryCharge = 25.00M;  // Existing Delivery charge
+        decimal wrappingCharge = 5.00M;   // Existing Wrapping charge
+        decimal gstRate = 1.1M;           // New: GST rate
 
         public MainWindow()
         {
@@ -41,9 +42,13 @@ namespace ProductApps
                 decimal totalCharge = cProduct.TotalPayment + deliveryCharge;
                 totalChargeTextBlock.Text = Convert.ToString(totalCharge);
 
-                // New: Calculate and display Total Charge after adding the wrapping charge
+                // Calculate and display Total Charge after adding the wrapping charge
                 decimal totalChargeWithWrap = cProduct.TotalPayment + deliveryCharge + wrappingCharge;
                 totalChargeWithWrapTextBlock.Text = Convert.ToString(totalChargeWithWrap);
+
+                // New: Calculate and display Total Charge after GST
+                decimal totalChargeWithGST = totalChargeWithWrap * gstRate;
+                totalChargeWithGSTTextBlock.Text = Convert.ToString(totalChargeWithGST);
             }
             catch (FormatException)
             {
@@ -57,8 +62,9 @@ namespace ProductApps
             priceTextBox.Text = "";
             quantityTextBox.Text = "";
             totalPaymentTextBlock.Text = "";
-            totalChargeTextBlock.Text = ""; // Clear the existing TextBlock
-            totalChargeWithWrapTextBlock.Text = ""; // New: Clear the new TextBlock as well
+            totalChargeTextBlock.Text = "";
+            totalChargeWithWrapTextBlock.Text = "";
+            totalChargeWithGSTTextBlock.Text = ""; // New: Clear the GST TextBlock as well
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)

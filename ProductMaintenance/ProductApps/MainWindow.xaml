@@ -3,6 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="145*"/>
+            <RowDefinition Height="22*"/>
+        </Grid.RowDefinitions>
         <Label Content="Product:" HorizontalAlignment="Left" Height="30" Margin="46,37,0,0" VerticalAlignment="Top" Width="61"/>
         <Label Content="Price $:" HorizontalAlignment="Left" Height="30" Margin="46,78,0,0" VerticalAlignment="Top" Width="61"/>
         <Label Content="Quantity:" HorizontalAlignment="Left" Height="30" Margin="48,113,0,0" VerticalAlignment="Top" Width="69" RenderTransformOrigin="0.371,0.498"/>
@@ -12,12 +16,14 @@
         <TextBox Name="priceTextBox" HorizontalAlignment="Left" Height="24" Margin="122,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="77"/>
         <TextBox x:Name="quantityTextBox" HorizontalAlignment="Left" Height="24" Margin="122,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="77"/>
         <Button Name="calculateButton" Content="_Calculate" HorizontalAlignment="Left" Height="37" Margin="327,152,0,0" VerticalAlignment="Top" Width="122" Click="calculateButton_Click"/>
-        <TextBlock x:Name="totalChargeTextBox" HorizontalAlignment="Left" Margin="46,209,0,54" Width="142" Height="NaN"><Run Text="Total Charge after adding"/><Run Text=" "/><LineBreak/><Run Text="the delivery charge ($25):"/></TextBlock>
-        <TextBox x:Name="totalChargeTextBlock" HorizontalAlignment="Left" Height="24" Margin="193,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="114" IsReadOnly="True"/>
+        <TextBlock x:Name="totalChargeTextBox" HorizontalAlignment="Left" Margin="46,197,0,22" Width="142" Height="NaN"><Run Text="Total Charge after adding"/><Run Text=" "/><LineBreak/><Run Text="the delivery charge ($25):"/></TextBlock>
+        <TextBox x:Name="totalChargeTextBlock" HorizontalAlignment="Left" Height="24" Margin="193,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="114" IsReadOnly="True"/>
         <Button Name="clearButton" Content="C_lear" HorizontalAlignment="Left" Height="34" Margin="327,209,0,0" VerticalAlignment="Top" Width="122" Click="clearButton_Click"/>
-        <Button Name="closeButton" Content="Cl_ose" HorizontalAlignment="Left" Height="34" Margin="327,264,0,0" VerticalAlignment="Top" Width="122" Click="closeButton_Click"/>
-        <TextBlock x:Name="totalChargeafterwrap" HorizontalAlignment="Left" Margin="46,258,0,10" Width="142" Height="NaN"><Run Text="Total Charge after adding"/><Run Text=" "/><LineBreak/><Run Text="the "/><Run Text="wrap charge"/><Run Text=" ($5):"/></TextBlock>
-        <TextBox x:Name="totalChargeWithWrapTextBlock" HorizontalAlignment="Left" Height="24" Margin="193,269,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="114" IsReadOnly="True"/>
+        <Button Name="closeButton" Content="Cl_ose" HorizontalAlignment="Left" Height="34" Margin="327,264,0,0" VerticalAlignment="Top" Width="122" Click="closeButton_Click" Grid.RowSpan="2"/>
+        <TextBlock x:Name="totalChargeafterwrap" HorizontalAlignment="Left" Margin="46,240,0,28" Width="142" Height="NaN" Grid.RowSpan="2"><Run Text="Total Charge after adding"/><Run Text=" "/><LineBreak/><Run Text="the "/><Run Text="wrap charge"/><Run Text=" ($5):"/></TextBlock>
+        <TextBox x:Name="totalChargeWithWrapTextBlock" HorizontalAlignment="Left" Height="24" Margin="193,249,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="114" IsReadOnly="True"/>
+        <TextBlock x:Name="totalChargeafterGST" HorizontalAlignment="Left" Margin="26,281,0,-13" Width="162" Height="NaN" Grid.RowSpan="2"><Run Language="en-au" Text="Total Charge After GST @ 10%"/></TextBlock>
+        <TextBox x:Name="totalChargeWithGSTTextBlock" HorizontalAlignment="Left" Height="24" Margin="193,282,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="114" IsReadOnly="True" Grid.RowSpan="2"/>
 
 
 
