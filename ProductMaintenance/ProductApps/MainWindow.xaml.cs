@@ -21,7 +21,8 @@ namespace ProductApps
     public partial class MainWindow : Window
     {
         Product cProduct;
-        decimal deliveryCharge = 25.00M; // Delivery charge
+        decimal deliveryCharge = 25.00M; // Existing Delivery charge
+        decimal wrappingCharge = 5.00M;  // New: Wrapping charge
 
         public MainWindow()
         {
@@ -36,9 +37,13 @@ namespace ProductApps
                 cProduct.calTotalPayment();
                 totalPaymentTextBlock.Text = Convert.ToString(cProduct.TotalPayment);
 
-                // New: Calculate and display Total Charge after adding the delivery charge
+                // Calculate and display Total Charge after adding the delivery charge
                 decimal totalCharge = cProduct.TotalPayment + deliveryCharge;
                 totalChargeTextBlock.Text = Convert.ToString(totalCharge);
+
+                // New: Calculate and display Total Charge after adding the wrapping charge
+                decimal totalChargeWithWrap = cProduct.TotalPayment + deliveryCharge + wrappingCharge;
+                totalChargeWithWrapTextBlock.Text = Convert.ToString(totalChargeWithWrap);
             }
             catch (FormatException)
             {
@@ -52,7 +57,8 @@ namespace ProductApps
             priceTextBox.Text = "";
             quantityTextBox.Text = "";
             totalPaymentTextBlock.Text = "";
-            totalChargeTextBlock.Text = ""; // Clear the new TextBlock as well
+            totalChargeTextBlock.Text = ""; // Clear the existing TextBlock
+            totalChargeWithWrapTextBlock.Text = ""; // New: Clear the new TextBlock as well
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -61,4 +67,3 @@ namespace ProductApps
         }
     }
 }
-
